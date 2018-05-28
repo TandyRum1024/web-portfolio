@@ -1,0 +1,85 @@
+@keyframes wiggly
+{
+    0% { transform: rotate(-12deg); }
+    50% { transform: rotate(12deg); }
+    100% { transform: rotate(-12deg); }
+}
+
+@keyframes spinny
+{
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body
+{
+    background-color: #161413;
+    color: moccasin;
+    margin: 0;
+}
+
+div.top-dawg
+{
+    text-align: center;
+    
+    /* BG */
+    margin: 0;
+    padding: 5% 0;
+
+    background-image: url("img/firewatch-bg.jpg"), url("img/bg-diamond.png");
+    background-color: chocolate;
+    background-repeat: no-repeat;
+    background-position-x: center; /* center the pix plz */
+    background-attachment: fixed;
+}
+
+#big-title
+{
+    font-size: 6em;
+    font-family: 'Gungsuh';
+    font-style: italic;
+
+    /* shadow */
+    text-shadow: 0.08em 0.08em #252220;
+
+    /* go fidget */
+    animation-name: wiggly;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+div.middle-content
+{
+    margin: 0 0.5em 0 0.5em;
+    padding: 1em;
+
+    display: table;
+}
+
+div#side-bar
+{
+    background-image: url("img/bg-diamond.png");
+    background-color: chocolate;
+    
+    /* Make the sidebar same height as overall page?? */
+    width: 15%;
+    height: auto;
+
+    margin: 1em 1em 0 0;
+}
+
+div#content
+{
+    width: 80%;
+    height: auto;
+}
+
+div.bottom-footer
+{
+    text-align: center;
+    font-size: 0.8em;
+
+    color: slategray;
+}
