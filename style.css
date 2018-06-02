@@ -19,6 +19,13 @@ body
     margin: 0;
 }
 
+hr
+{
+    border: 3px dashed moccasin;
+    margin: 0;
+    padding: s0;
+}
+
 div.top-dawg
 {
     text-align: center;
@@ -27,11 +34,15 @@ div.top-dawg
     margin: 0;
     padding: 5% 0;
 
-    background-image: url("img/firewatch-bg.jpg"), url("img/bg-diamond.png");
+    background-image: url("img/firewatch-bg.jpg");
     background-color: chocolate;
     background-repeat: no-repeat;
     background-position-x: center; /* center the pix plz */
     background-attachment: fixed;
+    background-size: 90%;
+
+    /* Hide scroll caused by animation */
+    overflow: hidden;
 }
 
 #big-title
@@ -52,28 +63,20 @@ div.top-dawg
 
 div.middle-content
 {
-    margin: 0 0.5em 0 0.5em;
-    padding: 1em;
+    /* Set some margin space in between edges */
+    width: 90%;
+    margin: auto;
+
+    /* Set BG to weird... orange shit */
+    background-color: rgb(43, 39, 38);
 
     display: table;
 }
 
-div#side-bar
-{
-    background-image: url("img/bg-diamond.png");
-    background-color: chocolate;
-    
-    /* Make the sidebar same height as overall page?? */
-    width: 15%;
-    height: auto;
-
-    margin: 1em 1em 0 0;
-}
-
 div#content
 {
-    width: 80%;
-    height: auto;
+    /* Add padding to contents */
+    padding: 2em;
 }
 
 div.bottom-footer
@@ -81,5 +84,11 @@ div.bottom-footer
     text-align: center;
     font-size: 0.8em;
 
+    /* Fancy colours */
+    background-color: rgb(43, 41, 46);
     color: slategray;
+
+    /* No margin, Solid plz */
+    margin: 0;
+    padding: 1em;
 }
