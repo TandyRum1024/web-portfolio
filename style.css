@@ -4,6 +4,12 @@
 	src: url(fnt/Hack-Namsan.ttf);
 }
 
+@font-face
+{
+    font-family: OneLight;
+    src: url(fnt/KGOneMoreLightBIG.ttf);
+}
+
 @keyframes wiggly
 {
     0% { transform: rotate(-12deg); }
@@ -113,13 +119,9 @@ div.top-dawg::after
 	position:absolute;
     z-index: 0;
 
-    display: block;
-    margin: 0 auto;
-    
-    /* top: 0;
-    left: 0; */
+    left: 0;
 
-    height: 120vh;
+    width: 100vw;
     overflow: hidden;
 }
 
@@ -127,13 +129,13 @@ div.top-dawg::after
 {
 	line-height: 1em;
     font-size: 7em;
-    font-family: 'Gungsuh';
-    font-style: italic;
+    font-family: OneLight;
+    /*font-style: italic;*/
 
     margin: calc(50vh - 0.5em - 32px) 0;
     
     /* shadow */
-    text-shadow: 0.07em 0.07em #252220;
+    text-shadow: 0 0.15em #252220;
     
     position: relative;
     z-index: 2;
