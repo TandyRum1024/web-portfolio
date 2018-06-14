@@ -116,13 +116,23 @@ div.top-dawg::after
 
 #video-bg
 {
-	position:absolute;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+
+	/*position:absolute;
     z-index: 0;
 
-    left: 0;
+    display: block;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
 
-    width: 100vw;
-    overflow: hidden;
+    height: 120vh;
+    overflow: hidden;*/
 }
 
 #big-title
@@ -218,7 +228,8 @@ div.top-dawg::after
 
 div.middle-content
 {
-    z-index: 0;
+    position: relative;
+    z-index: 1;
     
     /* Set some margin space in between edges */
     width: 90%;
