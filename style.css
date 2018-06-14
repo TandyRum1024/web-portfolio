@@ -1,3 +1,9 @@
+@font-face
+{
+	font-family: HackSan;
+	src: url(fnt/Hack-Namsan.ttf);
+}
+
 @keyframes wiggly
 {
     0% { transform: rotate(-12deg); }
@@ -12,11 +18,27 @@
     100% { transform: rotate(360deg); }
 }
 
+@keyframes unfold-horizontal
+{
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes fold-horizontal
+{
+    0% { width: 100%; }
+    100% { width: 0%; }
+}
+
+
+
 body
 {
     background-color: #161413;
     color: moccasin;
     margin: 0;
+
+    font-family: HackSan;
 }
 
 hr
@@ -26,34 +48,96 @@ hr
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 300%;
+
+    text-align: center;
+    color: #FFDD00;
+}
+
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before
+{
+	/*background-image: : url(img/deco-left.png) center center no-repeat;*/
+	content: url(img/deco-left.png);
+}
+
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after
+{
+	/*background-image: : url(img/deco-left.png) center center no-repeat;*/
+	content: url(img/deco-right.png);
+}
+
+
 div.top-dawg
 {
     text-align: center;
     
     /* BG */
+    height: 100vh;
     margin: 0;
-    padding: 5% 0 0 0;
-
+    padding: 0 0 0 0;
+    
     background-image: url("img/firewatch-bg.jpg");
     background-color: chocolate;
     background-repeat: no-repeat;
     background-position-x: center; /* center the pix plz */
     background-attachment: fixed;
     background-size: 90%;
-
+    
     /* Hide scroll caused by animation */
+    overflow: hidden;
+    
+    z-index: 1;
+    position: relative;
+    box-shadow: 0 -21px 42px 21px black;
+}
+
+div.top-dawg::after
+{
+	content: "";
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 100%;
+	width: 100%;
+
+    background-image: url("img/bg-diamond.png");
+    background-repeat: repeat;
+}
+
+#video-bg
+{
+	position:absolute;
+    z-index: 0;
+
+    display: block;
+    margin: 0 auto;
+    
+    /* top: 0;
+    left: 0; */
+
+    height: 120vh;
     overflow: hidden;
 }
 
 #big-title
 {
-    font-size: 6em;
+	line-height: 1em;
+    font-size: 7em;
     font-family: 'Gungsuh';
     font-style: italic;
 
+    margin: calc(50vh - 0.5em - 32px) 0;
+    
     /* shadow */
-    text-shadow: 0.08em 0.08em #252220;
-
+    text-shadow: 0.07em 0.07em #252220;
+    
+    position: relative;
+    z-index: 2;
+    
     /* go fidget */
     animation-name: wiggly;
     animation-duration: 2s;
@@ -62,43 +146,86 @@ div.top-dawg
 }
 
 #nav-bar
+{   
+	position: relative;
+	z-index: 2;
+    height: 64px;
+    
+    margin: 0;
+    padding: 0;
+}
+
+#nav-bar ul
 {
-    list-style-type: none;
-    height: 4em;
-    margin: auto;
+    height: 100%;
+    
+    /* margin: 0; */
     padding: 0 5%;
-
     background-color: #ff0040;
-
+    
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    /* Shadow */
+    box-shadow: 0 0 84px 21px #161413;
 }
 
 #nav-bar li
 {
-    padding: auto;
-    margin: auto; 
+    transition-duration: 0.5s;
     
-    vertical-align: middle;
-    flex-grow: 1;
+    /* height: 100%; */
+    width: 100%;
+    height: inherit;
+    padding: auto 0;
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav-bar li::after
+{
+    /* animation: unfold-horizontal;
+    animation-duration: 1s; */
+    /* This is hella important; Make sure that you use content to render! */
+    content: "";
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    height: 100%;
 }
 
 #nav-bar li:hover
 {
-    background-color: #252220;
+    transition-duration: 0.5s;
+    background-color: #161413;
+}
+
+#nav-bar span
+{
+    margin: auto;
+    
+    /* animation: unfold-horizontal;
+    animation-duration: 1s; */
 }
 
 div.middle-content
 {
+    z-index: 0;
+    
     /* Set some margin space in between edges */
     width: 90%;
     margin: auto;
-
+    
     /* Set BG to weird... orange shit */
     background-color: rgb(43, 39, 38);
-
+    text-shadow: 0 0.2em #000000;
+    
     display: table;
 }
 
