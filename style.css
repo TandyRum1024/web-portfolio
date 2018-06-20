@@ -209,11 +209,6 @@ div.top-dawg::after
     color: #161413;
 }
 
-#nav-bar li:nth-child(2n)
-{
-    background-color: #fd1f4f;
-}
-
 #nav-bar li:hover
 {
     color: moccasin;
@@ -240,6 +235,25 @@ div.top-dawg::after
     animation-name: fold-horizontal;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+}
+
+/* git stripey :D */
+#nav-bar li:nth-child(2n)::before
+{
+    content: "";
+    
+    display: block;
+    position: absolute;
+    
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(245, 220, 209);
+
+    mix-blend-mode: multiply;
 }
 
 #nav-bar li:hover::after
