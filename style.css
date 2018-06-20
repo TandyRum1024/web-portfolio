@@ -60,18 +60,32 @@ h1, h2, h3, h4, h5, h6
 
     text-align: center;
     color: #FFDD00;
+
+    letter-spacing: 10px;
 }
 
 h1::before, h2::before, h3::before, h4::before, h5::before, h6::before
 {
-	/*background-image: : url(img/deco-left.png) center center no-repeat;*/
-	content: url(img/deco-left.png);
+    background-image: url(img/deco-left.png);
+    background-size: 256px 47px;
+    display: inline-block;
+    width: 256px; 
+    height: 47px;
+    content:"";
+
+    vertical-align: middle;
 }
 
 h1::after, h2::after, h3::after, h4::after, h5::after, h6::after
 {
-	/*background-image: : url(img/deco-left.png) center center no-repeat;*/
-	content: url(img/deco-right.png);
+    background-image: url(img/deco-right.png);
+    background-size: 256px 47px;
+    display: inline-block;
+    width: 256px; 
+    height: 47px;
+    content:"";
+
+    vertical-align: middle;
 }
 
 
@@ -102,8 +116,8 @@ div.top-dawg
 div.top-dawg::after
 {
 	content: "";
-
-	position: absolute;
+    position: absolute;
+    
 	top: 0;
 	left: 0;
 
@@ -119,6 +133,7 @@ div.top-dawg::after
 #video-bg
 {
     position: absolute;
+
     z-index: -1;
     left: 50%;
     top: 50%;
@@ -127,33 +142,21 @@ div.top-dawg::after
 
     min-width: 100%; 
     min-height: 100%;
-
-	/*position:absolute;
-    z-index: 0;
-
-    display: block;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-
-    height: 120vh;
-    overflow: hidden;*/
 }
 
 #big-title
 {
-	line-height: 1em;
+    position: relative;
+    z-index: 2;
+    
+    margin: calc(50vh - 0.5em - 32px) 0;
+    line-height: 1em;
+    
     font-size: 7em;
     font-family: OneLight;
-    /*font-style: italic;*/
-
-    margin: calc(50vh - 0.5em - 32px) 0;
     
     /* shadow */
     text-shadow: 0 0.15em #252220;
-    
-    position: relative;
-    z-index: 2;
     
     /* go fidget */
     animation-name: wiggly;
@@ -165,70 +168,97 @@ div.top-dawg::after
 #nav-bar
 {   
 	position: relative;
-	z-index: 2;
-    height: 64px;
     
+    height: 64px;
     margin: 0;
     padding: 0;
+
+    z-index: 2;
+
+    background-color: #ad1637;
 }
 
 #nav-bar ul
 {
-    height: 100%;
-    
-    /* margin: 0; */
-    padding: 0 5%;
-    background-color: #ff0040;
-    
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     
-    /* Shadow */
+    height: 100%;
+    padding: 0 5%;
+    
+    /* Colours yay */
     box-shadow: 0 0 84px 21px #161413;
 }
 
 #nav-bar li
 {
-    transition-duration: 0.5s;
-    
-    /* height: 100%; */
-    width: 100%;
-    height: inherit;
-    padding: auto 0;
-    
-    
+    /* position:absolute 는 부모 중 가장 마지막으로 position: 을 쓴 것 기준으로 자리를 잡는다... 그래서 기준을 li 에 잡아줍니다. */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    padding: auto 0;
+    width: 100%;
+    height: inherit;
+    
+    transition-duration: 0.5s;
+    background-color: #ff0040;
+
+    color: #161413;
 }
 
-#nav-bar li::after
+#nav-bar li:nth-child(2n)
 {
-    /* animation: unfold-horizontal;
-    animation-duration: 1s; */
-    /* This is hella important; Make sure that you use content to render! */
-    content: "";
-    background-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    
-    top: 0;
-    left: 0;
-    height: 100%;
+    background-color: #fd1f4f;
 }
 
 #nav-bar li:hover
 {
-    transition-duration: 0.5s;
-    background-color: #161413;
+    color: moccasin;
 }
 
-#nav-bar span
+#nav-bar li::after
 {
-    margin: auto;
+    content: "";
     
-    /* animation: unfold-horizontal;
-    animation-duration: 1s; */
+    display: block;
+    position: absolute;
+    
+    z-index: 0;
+    left: 50%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    /* center er' */
+    transform: translateX(-50%);
+
+    background-color: #161413;
+
+    animation-name: fold-horizontal;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#nav-bar li:hover::after
+{
+    /* ...Inherit li::after :D */
+    animation-name: unfold-horizontal;
+    animation-duration: 0.5s;
+}
+
+#nav-bar a, #nav-bar a:hover, #nav-bar a:visited, #nav-bar a:link, #nav-bar a:active
+{
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+
+    position: absolute;
+    z-index: 1;
 }
 
 div.middle-content
@@ -256,7 +286,7 @@ div#content
 div.bottom-footer
 {
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1.2em;
 
     /* Fancy colours */
     background-color: rgb(43, 41, 46);
